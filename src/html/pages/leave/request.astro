@@ -1,0 +1,90 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Request Leave | Cloud HR & Payout"
+const path = "../../../dist"
+
+const mainPage = "leave"
+const page = "request"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Request Leave</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+
+            <div class="card shadow">
+              <div class="card-header bg-primary text-white">
+                <h3 class="card-title">Leave Request Form</h3>
+              </div>
+
+              <div class="card-body">
+
+                <div class="form-group">
+                  <label>Leave Type</label>
+                  <select class="form-control">
+                    <option>Casual Leave</option>
+                    <option>Sick Leave</option>
+                    <option>Paid Leave</option>
+                    <option>Unpaid Leave</option>
+                  </select>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>From Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col-md-6">
+                    <label>To Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="form-group mt-3">
+                  <label>Reason</label>
+                  <textarea class="form-control" rows="4"></textarea>
+                </div>
+
+              </div>
+
+              <div class="card-footer text-right">
+                <button class="btn btn-success">
+                  <i class="bi bi-send"></i> Submit Request
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

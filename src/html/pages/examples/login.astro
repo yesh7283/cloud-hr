@@ -1,0 +1,170 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Cloud HR & Payout Management System | Login"
+const path = "../../../dist"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Head title={title} path={path} />
+  </head>
+
+  <body class="login-page">
+
+    <!-- Login Box -->
+    <div class="login-box">
+
+      <!-- Logo -->
+      <div class="login-logo text-center mb-3">
+        <span class="fw-bold fs-4 text-white">Cloud HR</span><br />
+        <small class="text-light">Payout Management System</small>
+      </div>
+
+      <!-- Card -->
+      <div class="card shadow">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Sign in to start your session</p>
+
+          <!-- LOGIN FORM -->
+          <form id="loginForm">
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+              <div class="input-group-text">
+                <span class="bi bi-envelope"></span>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Password"
+                required
+              />
+              <div class="input-group-text">
+                <span class="bi bi-lock-fill"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-8">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe" />
+                  <label class="form-check-label" for="rememberMe">
+                    Remember Me
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary w-100">
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Social Login -->
+          <div class="social-auth-links text-center mt-3">
+            <p>- OR -</p>
+            <a href="#" class="btn btn-primary w-100 mb-2">
+              <i class="bi bi-facebook me-2"></i> Sign in using Facebook
+            </a>
+            <a href="#" class="btn btn-danger w-100">
+              <i class="bi bi-google me-2"></i> Sign in using Google+
+            </a>
+          </div>
+
+          <!-- Links -->
+          <p class="mb-1 mt-3 text-center">
+            <a href="#">I forgot my password</a>
+          </p>
+          <p class="mb-0 text-center">
+            <a href="#">Register a new membership</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE CSS -->
+    <style>
+      body.login-page {
+        background-image: url("/assets/img/login-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      body.login-page::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 0;
+      }
+
+      .login-box {
+        position: relative;
+        z-index: 2;
+        width: 420px;
+        margin: 90px auto;
+      }
+    </style>
+
+   <!-- LOGIN SCRIPT -->
+<script>
+  document.getElementById("loginForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        alert(result.error || "Login failed");
+        return;
+      }
+
+      // Save user session
+      localStorage.setItem("user", JSON.stringify(result.user));
+
+      // Redirect based on role
+      if (result.user.role === "admin") {
+        window.location.href = "/index2.html";
+      } else {
+        window.location.href = "/index2";
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Cannot connect to backend. Is Flask running?");
+    }
+  });
+</script>
+
+
+    <Scripts path={path} />
+  </body>
+</html>

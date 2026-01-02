@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en" data-astro-cid-njbsdrya>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cloud HR | Employees</title>
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="Cloud HR | Employees" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="Cloud HR & Payout Management System is an HR & Payroll dashboard UI for attendance, leave, compliance and payouts."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="./css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="./css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+
+    <style>
+      .page-header[data-astro-cid-njbsdrya] {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .filters[data-astro-cid-njbsdrya] {
+        display: grid;
+        grid-template-columns: 1fr 200px 200px 160px;
+        gap: 12px;
+      }
+      @media (max-width: 992px) {
+        .filters[data-astro-cid-njbsdrya] {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 576px) {
+        .filters[data-astro-cid-njbsdrya] {
+          grid-template-columns: 1fr;
+        }
+      }
+      .employee-grid[data-astro-cid-njbsdrya] {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      @media (max-width: 992px) {
+        .employee-grid[data-astro-cid-njbsdrya] {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 576px) {
+        .employee-grid[data-astro-cid-njbsdrya] {
+          grid-template-columns: 1fr;
+        }
+      }
+      .employee-card[data-astro-cid-njbsdrya] {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
+        background: #fff;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.08s ease,
+          box-shadow 0.08s ease;
+      }
+      .employee-card[data-astro-cid-njbsdrya]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 22px #00000014;
+      }
+      .avatar[data-astro-cid-njbsdrya] {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        background: #0d6efd;
+        color: #fff;
+        flex: 0 0 auto;
+      }
+      .emp-name[data-astro-cid-njbsdrya] {
+        font-weight: 700;
+        margin: 0;
+      }
+      .emp-role[data-astro-cid-njbsdrya] {
+        margin: 2px 0 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+      .status-pill[data-astro-cid-njbsdrya] {
+        margin-left: auto;
+        font-size: 0.78rem;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #0d6efd14;
+        color: #0d6efd;
+        border: 1px solid rgba(13, 110, 253, 0.15);
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary" data-astro-cid-njbsdrya>
+    <div class="app-wrapper" data-astro-cid-njbsdrya>
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="/index2.html" class="nav-link">Home</a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Navbar Search-->
+            <li class="nav-item">
+              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <!--end::Navbar Search-->
+
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="./assets/img/user1-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="./assets/img/user8-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="./assets/img/user3-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img
+                  src="./assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="User Image"
+                />
+                <span class="d-none d-md-inline">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::User Image-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="./assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="User Image"
+                  />
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
+                  </p>
+                </li>
+                <!--end::User Image-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="/examples/login" class="btn btn-outline-danger float-end">Sign out</a>
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!-- BRAND -->
+        <div class="sidebar-brand">
+          <a href="/index2" class="brand-link">
+            <img
+              src="/assets/img/AdminLTELogo.png"
+              alt="Cloud HR & Payout Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <span class="brand-text fw-light">Cloud HR & Payout</span>
+          </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              data-accordion="false"
+            >
+              <!-- EMPLOYEES -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-people-fill"></i>
+                  <p>Employees <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/employees" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Employee List</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/employees/add" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Add Employee</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- ATTENDANCE -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-clock"></i>
+                  <p>Attendance <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/attendance/clockin" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Clock In / Out</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/attendance/history" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Attendance History</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- LEAVE -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-calendar-check"></i>
+                  <p>Leave <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/leave/request" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Request Leave</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/leave/approval" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Approval Leave</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- PAYROLL -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-cash-stack"></i>
+                  <p>Payroll <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/payroll/run" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Run Payroll</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/payroll/payslips" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Payslips</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- DOCUMENTS -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-folder2-open"></i>
+                  <p>Documents <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/documents/payslips" class="nav-link">
+                      <i class="nav-icon bi bi-file-earmark-pdf"></i>
+                      <p>Payslips</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/documents/personal" class="nav-link">
+                      <i class="nav-icon bi bi-person-vcard"></i>
+                      <p>Personal Documents</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- REPORTS -->
+              <li class="nav-item">
+                <a href="/reports" class="nav-link">
+                  <i class="nav-icon bi bi-bar-chart-line"></i>
+                  <p>Reports</p>
+                </a>
+              </li>
+
+              <!-- SETTINGS -->
+              <li class="nav-item">
+                <a href="/settings" class="nav-link">
+                  <i class="nav-icon bi bi-gear"></i>
+                  <p>Settings</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="app-main" data-astro-cid-njbsdrya>
+        <div class="app-content-header" data-astro-cid-njbsdrya>
+          <div class="container-fluid" data-astro-cid-njbsdrya>
+            <div class="page-header" data-astro-cid-njbsdrya>
+              <div data-astro-cid-njbsdrya>
+                <h3 class="mb-0" data-astro-cid-njbsdrya>Employee Hub</h3>
+                <small class="text-muted" data-astro-cid-njbsdrya
+                  >Click an employee to open profile</small
+                >
+              </div>
+
+              <a href="#" class="btn btn-primary" data-astro-cid-njbsdrya>
+                <i class="bi bi-plus-lg me-1" data-astro-cid-njbsdrya></i> Add Employee
+              </a>
+            </div>
+
+            <div class="card mt-3" data-astro-cid-njbsdrya>
+              <div class="card-body" data-astro-cid-njbsdrya>
+                <div class="filters" data-astro-cid-njbsdrya>
+                  <input
+                    class="form-control"
+                    placeholder="Find name, job title"
+                    data-astro-cid-njbsdrya
+                  />
+                  <select class="form-select" data-astro-cid-njbsdrya>
+                    <option data-astro-cid-njbsdrya>All teams</option>
+                    <option data-astro-cid-njbsdrya>No team</option>
+                    <option data-astro-cid-njbsdrya>HR</option>
+                    <option data-astro-cid-njbsdrya>IT</option>
+                  </select>
+                  <select class="form-select" data-astro-cid-njbsdrya>
+                    <option data-astro-cid-njbsdrya>Sort: Name (A-Z)</option>
+                    <option data-astro-cid-njbsdrya>Sort: Name (Z-A)</option>
+                    <option data-astro-cid-njbsdrya>Sort: Recently added</option>
+                  </select>
+                  <select class="form-select" data-astro-cid-njbsdrya>
+                    <option data-astro-cid-njbsdrya>Status: All</option>
+                    <option data-astro-cid-njbsdrya>Active</option>
+                    <option data-astro-cid-njbsdrya>WFH</option>
+                    <option data-astro-cid-njbsdrya>Office</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 employee-grid" data-astro-cid-njbsdrya>
+              <a class="employee-card" href="/employees/view?id=1" data-astro-cid-njbsdrya>
+                <div class="avatar" data-astro-cid-njbsdrya>AJ</div>
+                <div data-astro-cid-njbsdrya>
+                  <p class="emp-name" data-astro-cid-njbsdrya>Ashish Jaiswal</p>
+                  <p class="emp-role" data-astro-cid-njbsdrya>Office Manager</p>
+                </div>
+                <span class="status-pill" data-astro-cid-njbsdrya>Active</span> </a
+              ><a class="employee-card" href="/employees/view?id=2" data-astro-cid-njbsdrya>
+                <div class="avatar" data-astro-cid-njbsdrya>CR</div>
+                <div data-astro-cid-njbsdrya>
+                  <p class="emp-name" data-astro-cid-njbsdrya>Chandrika Reddy Mallu</p>
+                  <p class="emp-role" data-astro-cid-njbsdrya>Intern</p>
+                </div>
+                <span class="status-pill" data-astro-cid-njbsdrya>Active</span> </a
+              ><a class="employee-card" href="/employees/view?id=3" data-astro-cid-njbsdrya>
+                <div class="avatar" data-astro-cid-njbsdrya>HM</div>
+                <div data-astro-cid-njbsdrya>
+                  <p class="emp-name" data-astro-cid-njbsdrya>Hemanth Menthula</p>
+                  <p class="emp-role" data-astro-cid-njbsdrya>IT Consultant</p>
+                </div>
+                <span class="status-pill" data-astro-cid-njbsdrya>WFH</span> </a
+              ><a class="employee-card" href="/employees/view?id=4" data-astro-cid-njbsdrya>
+                <div class="avatar" data-astro-cid-njbsdrya>NK</div>
+                <div data-astro-cid-njbsdrya>
+                  <p class="emp-name" data-astro-cid-njbsdrya>Naga Kuchibhotla</p>
+                  <p class="emp-role" data-astro-cid-njbsdrya></p>
+                </div>
+                <span class="status-pill" data-astro-cid-njbsdrya>Active</span> </a
+              ><a class="employee-card" href="/employees/view?id=5" data-astro-cid-njbsdrya>
+                <div class="avatar" data-astro-cid-njbsdrya>YJ</div>
+                <div data-astro-cid-njbsdrya>
+                  <p class="emp-name" data-astro-cid-njbsdrya>Yeswanth Jagu</p>
+                  <p class="emp-role" data-astro-cid-njbsdrya>Associate Engineer</p>
+                </div>
+                <span class="status-pill" data-astro-cid-njbsdrya>Office</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">Cloud HR &amp; Payout Management System</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2025
+          <a href="#" class="text-decoration-none">Cloud HR &amp; Payout Management System</a>.
+        </strong>
+        All rights reserved.
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="./js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+  </body>
+</html>

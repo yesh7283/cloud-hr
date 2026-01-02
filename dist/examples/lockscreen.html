@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Employee Login | Cloud HR</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/adminlte.min.css" />
+  </head>
+
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="card card-outline card-success">
+        <div class="card-header text-center"><b>Employee</b> Login</div>
+
+        <div class="card-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Email" required />
+            </div>
+
+            <div class="mb-3">
+              <input type="password" class="form-control" placeholder="Password" required />
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      document.getElementById('loginForm').addEventListener('submit', function (e) {
+        (e.preventDefault(),
+          sessionStorage.setItem('isLoggedIn', 'true'),
+          (window.location.href = '/'));
+      });
+    </script>
+  </body>
+</html>

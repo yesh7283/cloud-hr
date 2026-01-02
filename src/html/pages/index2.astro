@@ -1,0 +1,305 @@
+---
+import Head from "@components/_head.astro"
+import Footer from "@components/dashboard/_footer.astro"
+import Topbar from "@components/dashboard/_topbar.astro"
+import Sidenav from "@components/dashboard/_sidenav.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Cloud HR & Payout Management System | Dashboard"
+const path = "../../dist"
+const mainPage = "dashboard"
+const page = "index2"
+
+const pathname = Astro.url.pathname
+const depth = pathname.split("/").filter(Boolean).length - 1
+const deploymentPath = depth <= 0 ? "./" : "../".repeat(depth)
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.css" />
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<div class="app-wrapper">
+
+  <Topbar path={path} />
+  <Sidenav path={path} mainPage={mainPage} page={page} />
+
+  <main class="app-main">
+
+    <!-- HEADER -->
+    <div class="app-content-header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3 class="mb-0">HR Dashboard</h3>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-end">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="app-content">
+      <div class="container-fluid">
+
+        <!-- KPI CARDS -->
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <div class="info-box">
+              <span class="info-box-icon text-bg-primary">
+                <i class="bi bi-people-fill"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Total Employees</span>
+                <span class="info-box-number">126</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="info-box">
+              <span class="info-box-icon text-bg-success">
+                <i class="bi bi-calendar-check"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Present Today</span>
+                <span class="info-box-number">98 / 126</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="info-box">
+              <span class="info-box-icon text-bg-danger">
+                <i class="bi bi-exclamation-triangle"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Visa Expiring (30 Days)</span>
+                <span class="info-box-number">7</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="info-box">
+              <span class="info-box-icon text-bg-warning">
+                <i class="bi bi-currency-pound"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Payroll Due</span>
+                <span class="info-box-number">£24,813</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHART + COMPLIANCE -->
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Attendance Trend (Last 7 Days)</h5>
+              </div>
+              <div class="card-body">
+                <div id="attendanceChart" style="min-height:260px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Compliance Status</h5>
+              </div>
+              <div class="card-body">
+
+                <div class="progress-group">
+                  Visa Valid
+                  <span class="float-end"><b>112</b>/126</span>
+                  <div class="progress progress-sm">
+                    <div class="progress-bar bg-success" style="width:88%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-group">
+                  Visa Expiring
+                  <span class="float-end"><b>7</b></span>
+                  <div class="progress progress-sm">
+                    <div class="progress-bar bg-warning" style="width:6%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-group">
+                  Visa Expired
+                  <span class="float-end"><b>2</b></span>
+                  <div class="progress progress-sm">
+                    <div class="progress-bar bg-danger" style="width:2%"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALERTS + RECENT -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">HR Alerts</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item text-danger">
+                    ⚠️
+                    <a href="javascript:void(0)"
+                       data-bs-toggle="modal"
+                       data-bs-target="#employeeQuickViewModal"
+                       class="fw-semibold text-danger">
+                      John
+                    </a>
+                    – Visa expires in 14 days
+                  </li>
+                  <li class="list-group-item text-warning">
+                    ⚠️ 3 employees missing documents
+                  </li>
+                  <li class="list-group-item text-success">
+                    ✔ Payroll approved
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Recently Joined</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a href="javascript:void(0)"
+                       data-bs-toggle="modal"
+                       data-bs-target="#employeeQuickViewModal">
+                      Alexander – Software Engineer
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="javascript:void(0)"
+                       data-bs-toggle="modal"
+                       data-bs-target="#employeeQuickViewModal">
+                      Jane – Care Assistant
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="javascript:void(0)"
+                       data-bs-toggle="modal"
+                       data-bs-target="#employeeQuickViewModal">
+                      Nora – HR Executive
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</div>
+
+<Scripts path={path} />
+
+<!-- ApexCharts -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+  const options = {
+    chart: { type: "area", height: 260, toolbar: { show: false } },
+    series: [
+      { name: "Present", data: [92,95,90,98,96,94,98] },
+      { name: "Absent", data: [34,31,36,28,30,32,28] }
+    ],
+    colors: ["#198754","#dc3545"],
+    stroke: { curve: "smooth" },
+    dataLabels: { enabled: false },
+    xaxis: { categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"] }
+  }
+  new ApexCharts(document.querySelector("#attendanceChart"), options).render()
+})
+</script>
+
+<!-- EMPLOYEE QUICK VIEW MODAL -->
+<div class="modal fade" id="employeeQuickViewModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Employee quick view</h5>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-md-4 text-center border-end">
+            <img
+              src={deploymentPath + "assets/img/user1-128x128.jpg"}
+              class="rounded-circle mb-3"
+              width="110"
+              height="110"
+            />
+            <h5 class="mb-0">Ashish Jaiswal</h5>
+            <small class="text-muted">Office Manager</small>
+
+            <div class="alert alert-info mt-3 py-2">
+              <i class="bi bi-geo-alt"></i> Working from usual location
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <h6 class="fw-bold">Teams</h6>
+            <p class="text-muted">No team assigned</p>
+
+            <h6 class="fw-bold">Contact</h6>
+            <p><i class="bi bi-envelope"></i> ashish.jaiswal@company.com</p>
+            <p><i class="bi bi-telephone"></i> +44 7700 900123</p>
+
+            <h6 class="fw-bold">Reports to</h6>
+            <div class="d-flex align-items-center gap-2">
+              <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                   style="width:40px;height:40px;">
+                NJP
+              </div>
+              <span>Nisha Jyothi Prasad</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary">View Full Profile</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

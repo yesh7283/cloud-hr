@@ -1,0 +1,51 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Logout | Cloud HR & Payout"
+const path = "../../dist"
+
+const mainPage = ""
+const page = ""
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <section class="content">
+      <div class="container-fluid d-flex justify-content-center align-items-center" style="height:70vh">
+
+        <div class="card text-center" style="max-width:420px;">
+          <div class="card-body">
+
+            <i class="bi bi-box-arrow-right text-danger fs-1"></i>
+            <h4 class="mt-3">You have been logged out</h4>
+            <p class="text-muted">
+              Thank you for using Cloud HR & Payout
+            </p>
+
+            <a href="/login" class="btn btn-primary mt-3">
+              <i class="bi bi-box-arrow-in-right"></i> Login Again
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

@@ -1,0 +1,105 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Attendance History | Cloud HR & Payout"
+const path = "../../../dist"
+
+const mainPage = "attendance"
+const page = "history"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- CONTENT -->
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Attendance History</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- FILTER -->
+        <div class="card">
+          <div class="card-body row">
+            <div class="col-md-3">
+              <label>From Date</label>
+              <input type="date" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+              <label>To Date</label>
+              <input type="date" class="form-control" />
+            </div>
+
+            <div class="col-md-3 align-self-end">
+              <button class="btn btn-primary">Filter</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Attendance Records</h3>
+          </div>
+
+          <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover">
+
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>In Time</th>
+                  <th>Out Time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>2025-01-05</td>
+                  <td>09:05</td>
+                  <td>18:10</td>
+                  <td><span class="badge bg-success">Present</span></td>
+                </tr>
+
+                <tr>
+                  <td>2025-01-04</td>
+                  <td>09:45</td>
+                  <td>18:00</td>
+                  <td><span class="badge bg-warning">Late</span></td>
+                </tr>
+
+                <tr>
+                  <td>2025-01-03</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td><span class="badge bg-danger">Absent</span></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

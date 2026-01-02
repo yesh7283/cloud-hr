@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Settings | Cloud HR &amp; Payout</title>
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="Settings | Cloud HR &#38; Payout" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="Cloud HR & Payout Management System is an HR & Payroll dashboard UI for attendance, leave, compliance and payouts."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="./css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="./css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+  </head>
+
+  <body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+      <div class="content-wrapper">
+        <!-- PAGE HEADER -->
+        <section class="content-header">
+          <div class="container-fluid">
+            <h1>Settings</h1>
+          </div>
+        </section>
+
+        <!-- PAGE CONTENT -->
+        <section class="content">
+          <div class="container-fluid">
+            <!-- SETTINGS TABS -->
+            <ul class="nav nav-tabs mb-3">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#general"> General </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#profile"> Profile </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#security"> Security </a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- GENERAL SETTINGS -->
+              <div class="tab-pane fade show active" id="general">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Company Name</label>
+                        <input type="text" class="form-control" value="Cloud HR & Payout" />
+                      </div>
+
+                      <div class="col-md-6">
+                        <label>Time Zone</label>
+                        <select class="form-control">
+                          <option>UTC</option>
+                          <option>Asia/Kolkata</option>
+                          <option>Europe/London</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mt-3">
+                      <div class="col-md-6">
+                        <label>Currency</label>
+                        <select class="form-control">
+                          <option>GBP (£)</option>
+                          <option>INR (₹)</option>
+                          <option>USD ($)</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label>Date Format</label>
+                        <select class="form-control">
+                          <option>DD-MM-YYYY</option>
+                          <option>MM-DD-YYYY</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="text-right mt-4">
+                      <button class="btn btn-primary">
+                        <i class="bi bi-save"></i> Save General Settings
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROFILE SETTINGS -->
+              <div class="tab-pane fade" id="profile">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" value="Alexander Pierce" />
+                      </div>
+
+                      <div class="col-md-6">
+                        <label>Email</label>
+                        <input type="email" class="form-control" value="alexander@example.com" />
+                      </div>
+                    </div>
+
+                    <div class="row mt-3">
+                      <div class="col-md-6">
+                        <label>Mobile</label>
+                        <input type="text" class="form-control" />
+                      </div>
+
+                      <div class="col-md-6">
+                        <label>Role</label>
+                        <input type="text" class="form-control" value="Admin" disabled />
+                      </div>
+                    </div>
+
+                    <div class="text-right mt-4">
+                      <button class="btn btn-success">
+                        <i class="bi bi-save"></i> Update Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECURITY SETTINGS -->
+              <div class="tab-pane fade" id="security">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>New Password</label>
+                        <input type="password" class="form-control" />
+                      </div>
+
+                      <div class="col-md-6">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="text-right mt-4">
+                      <button class="btn btn-danger">
+                        <i class="bi bi-shield-lock"></i> Update Password
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="./js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+  </body>
+</html>

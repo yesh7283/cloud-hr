@@ -1,0 +1,169 @@
+---
+import Head from "@components/_head.astro";
+import Scripts from "@components/_scripts.astro";
+
+import Topbar from "@components/dashboard/_topbar.astro";
+import Sidenav from "@components/dashboard/_sidenav.astro";
+import Footer from "@components/dashboard/_footer.astro";
+
+const title = "Cloud HR | Employees";
+const path = "../../dist";        // IMPORTANT (fix sidebar errors)
+const htmlPath = "..";
+const mainPage = "Employees";
+const page = "employees";
+
+// Dummy employees (later this will come from MySQL API)
+const employees = [
+  { id: 1, name: "Ashish Jaiswal", role: "Office Manager", status: "Active", initials: "AJ" },
+  { id: 2, name: "Chandrika Reddy Mallu", role: "Intern", status: "Active", initials: "CR" },
+  { id: 3, name: "Hemanth Menthula", role: "IT Consultant", status: "WFH", initials: "HM" },
+  { id: 4, name: "Naga Kuchibhotla", role: "", status: "Active", initials: "NK" },
+  { id: 5, name: "Yeswanth Jagu", role: "Associate Engineer", status: "Office", initials: "YJ" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={title} path={path} />
+    <style>
+      .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .filters {
+        display: grid;
+        grid-template-columns: 1fr 200px 200px 160px;
+        gap: 12px;
+      }
+      @media (max-width: 992px) {
+        .filters { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 576px) {
+        .filters { grid-template-columns: 1fr; }
+      }
+
+      .employee-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      @media (max-width: 992px) {
+        .employee-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 576px) {
+        .employee-grid { grid-template-columns: 1fr; }
+      }
+
+      .employee-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px;
+        border: 1px solid rgba(0,0,0,.08);
+        border-radius: 12px;
+        background: #fff;
+        text-decoration: none;
+        color: inherit;
+        transition: transform .08s ease, box-shadow .08s ease;
+      }
+      .employee-card:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 22px rgba(0,0,0,.08);
+      }
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        letter-spacing: .5px;
+        background: #0d6efd;
+        color: #fff;
+        flex: 0 0 auto;
+      }
+      .emp-name { font-weight: 700; margin: 0; }
+      .emp-role { margin: 2px 0 0 0; font-size: .9rem; opacity: .8; }
+      .status-pill {
+        margin-left: auto;
+        font-size: .78rem;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(13,110,253,.08);
+        color: #0d6efd;
+        border: 1px solid rgba(13,110,253,.15);
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <Topbar htmlPath={htmlPath} path={path} />
+      <Sidenav htmlPath={htmlPath} path={path} mainPage={mainPage} page={page} />
+
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="page-header">
+              <div>
+                <h3 class="mb-0">Employee Hub</h3>
+                <small class="text-muted">Click an employee to open profile</small>
+              </div>
+
+              <a href="#" class="btn btn-primary">
+                <i class="bi bi-plus-lg me-1"></i> Add Employee
+              </a>
+            </div>
+
+            <div class="card mt-3">
+              <div class="card-body">
+                <div class="filters">
+                  <input class="form-control" placeholder="Find name, job title" />
+                  <select class="form-select">
+                    <option>All teams</option>
+                    <option>No team</option>
+                    <option>HR</option>
+                    <option>IT</option>
+                  </select>
+                  <select class="form-select">
+                    <option>Sort: Name (A-Z)</option>
+                    <option>Sort: Name (Z-A)</option>
+                    <option>Sort: Recently added</option>
+                  </select>
+                  <select class="form-select">
+                    <option>Status: All</option>
+                    <option>Active</option>
+                    <option>WFH</option>
+                    <option>Office</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3 employee-grid">
+              {employees.map((emp) => (
+                <a class="employee-card" href={`/employees/view?id=${emp.id}`}>
+                  <div class="avatar">{emp.initials}</div>
+                  <div>
+                    <p class="emp-name">{emp.name}</p>
+                    <p class="emp-role">{emp.role}</p>
+                  </div>
+                  <span class="status-pill">{emp.status}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+
+    <Scripts path={path} />
+  </body>
+</html>

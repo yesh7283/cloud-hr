@@ -1,0 +1,113 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Run Payroll | Cloud HR & Payout"
+const path = "../../../dist"
+
+const mainPage = "payroll"
+const page = "run"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Run Payroll</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- PAYROLL SETTINGS -->
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h3 class="card-title">Payroll Processing</h3>
+          </div>
+
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-4">
+                <label>Payroll Month</label>
+                <input type="month" class="form-control" />
+              </div>
+
+              <div class="col-md-4">
+                <label>Department</label>
+                <select class="form-control">
+                  <option>All Departments</option>
+                  <option>HR</option>
+                  <option>IT</option>
+                  <option>Finance</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label>Payroll Type</label>
+                <select class="form-control">
+                  <option>Monthly</option>
+                  <option>Weekly</option>
+                </select>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="text-right">
+              <button class="btn btn-success btn-lg">
+                <i class="bi bi-play-circle"></i> Run Payroll
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Payroll Summary</h3>
+          </div>
+
+          <div class="card-body">
+            <div class="row text-center">
+              <div class="col-md-3">
+                <h4>Employees</h4>
+                <p class="text-bold">45</p>
+              </div>
+              <div class="col-md-3">
+                <h4>Total Earnings</h4>
+                <p class="text-success">£120,000</p>
+              </div>
+              <div class="col-md-3">
+                <h4>Deductions</h4>
+                <p class="text-danger">£25,000</p>
+              </div>
+              <div class="col-md-3">
+                <h4>Net Pay</h4>
+                <p class="text-primary">£95,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

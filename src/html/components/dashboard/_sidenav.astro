@@ -1,0 +1,159 @@
+---
+const { mainPage, page } = Astro.props
+---
+
+<!--begin::Sidebar-->
+<aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+
+  <!-- BRAND -->
+  <div class="sidebar-brand">
+    <a href="/index2" class="brand-link">
+      <img
+        src="/assets/img/AdminLTELogo.png"
+        alt="Cloud HR & Payout Logo"
+        class="brand-image opacity-75 shadow"
+      />
+      <span class="brand-text fw-light">Cloud HR & Payout</span>
+    </a>
+  </div>
+
+  <div class="sidebar-wrapper">
+    <nav class="mt-2">
+
+<ul
+  class="nav sidebar-menu flex-column"
+  data-lte-toggle="treeview"
+  data-accordion="false"
+>
+<!-- EMPLOYEES -->
+<li class:list={["nav-item", mainPage === "employees" && "menu-open"]}>
+  <a href="#" class:list={["nav-link", mainPage === "employees" && "active"]}>
+    <i class="nav-icon bi bi-people-fill"></i>
+    <p>Employees <i class="right bi bi-chevron-down"></i></p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="/employees" class="nav-link">
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Employee List</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/employees/add" class="nav-link">
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Add Employee</p>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<!-- ATTENDANCE -->
+<li class:list={["nav-item", mainPage === "attendance" && "menu-open"]}>
+  <a href="#" class:list={["nav-link", mainPage === "attendance" && "active"]}>
+    <i class="nav-icon bi bi-clock"></i>
+    <p>Attendance <i class="right bi bi-chevron-down"></i></p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="/attendance/clockin" class:list={["nav-link", page === "clockin" && "active"]}>
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Clock In / Out</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/attendance/history" class:list={["nav-link", page === "history" && "active"]}>
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Attendance History</p>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<!-- LEAVE -->
+<li class:list={["nav-item", mainPage === "leave" && "menu-open"]}>
+  <a href="#" class:list={["nav-link", mainPage === "leave" && "active"]}>
+    <i class="nav-icon bi bi-calendar-check"></i>
+    <p>Leave <i class="right bi bi-chevron-down"></i></p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="/leave/request" class:list={["nav-link", page === "request" && "active"]}>
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Request Leave</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/leave/approval" class:list={["nav-link", page === "approval" && "active"]}>
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Approval Leave</p>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<!-- PAYROLL -->
+<li class:list={["nav-item", mainPage === "payroll" && "menu-open"]}>
+  <a href="#" class:list={["nav-link", mainPage === "payroll" && "active"]}>
+    <i class="nav-icon bi bi-cash-stack"></i>
+    <p>Payroll <i class="right bi bi-chevron-down"></i></p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="/payroll/run" class:list={["nav-link", page === "run" && "active"]}>
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Run Payroll</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/payroll/payslips" class:list={["nav-link", page === "payslips" && "active"]}>
+        <i class="nav-icon bi bi-circle"></i>
+        <p>Payslips</p>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<!-- DOCUMENTS -->
+<li class:list={["nav-item", mainPage === "documents" && "menu-open"]}>
+  <a href="#" class:list={["nav-link", mainPage === "documents" && "active"]}>
+    <i class="nav-icon bi bi-folder2-open"></i>
+    <p>Documents <i class="right bi bi-chevron-down"></i></p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="/documents/payslips" class:list={["nav-link", page === "payslips" && "active"]}>
+        <i class="nav-icon bi bi-file-earmark-pdf"></i>
+        <p>Payslips</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/documents/personal" class:list={["nav-link", page === "personal" && "active"]}>
+        <i class="nav-icon bi bi-person-vcard"></i>
+        <p>Personal Documents</p>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<!-- REPORTS -->
+<li class="nav-item">
+  <a href="/reports" class:list={["nav-link", mainPage === "reports" && "active"]}>
+    <i class="nav-icon bi bi-bar-chart-line"></i>
+    <p>Reports</p>
+  </a>
+</li>
+
+<!-- SETTINGS -->
+<li class="nav-item">
+  <a href="/settings" class:list={["nav-link", mainPage === "settings" && "active"]}>
+    <i class="nav-icon bi bi-gear"></i>
+    <p>Settings</p>
+  </a>
+</li>
+
+
+
+</ul>
+    </nav>
+  </div>
+</aside>

@@ -1,0 +1,152 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Clock In / Out | Cloud HR & Payout"
+const path = "../../../dist"
+
+const mainPage = "attendance"
+const page = "clockin"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+  <style>
+    .clock-card {
+      max-width: 700px;
+      margin: auto;
+    }
+    .time-display {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .date-display {
+      font-size: 1.1rem;
+      color: #6c757d;
+    }
+    .status-badge {
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
+    }
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <!-- PAGE HEADER -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Clock In / Out</h1>
+          </div>
+          <div class="col-sm-6 text-right">
+            <span class="badge bg-info status-badge">
+              Today: <span id="todayDate"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- MAIN CARD -->
+        <div class="card shadow clock-card">
+          <div class="card-header bg-primary text-white text-center">
+            <h3 class="card-title mb-0">
+              <i class="bi bi-clock-history"></i> Attendance Punch
+            </h3>
+          </div>
+
+          <div class="card-body text-center">
+
+            <!-- TIME -->
+            <div class="time-display mb-2" id="time"></div>
+            <div class="date-display mb-4" id="fullDate"></div>
+
+            <!-- STATUS -->
+            <div class="mb-4">
+              <span class="badge bg-secondary status-badge" id="statusText">
+                Not Clocked In
+              </span>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="d-flex justify-content-center gap-3">
+              <button
+                class="btn btn-success btn-lg px-4"
+                onclick="clockIn()"
+              >
+                <i class="bi bi-box-arrow-in-right"></i> Clock In
+              </button>
+
+              <button
+                class="btn btn-danger btn-lg px-4"
+                onclick="clockOut()"
+              >
+                <i class="bi bi-box-arrow-right"></i> Clock Out
+              </button>
+            </div>
+
+          </div>
+
+          <!-- FOOTER INFO -->
+          <div class="card-footer text-muted text-center">
+            Working Hours: 9:30 AM – 6:30 PM
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<Scripts path={path} />
+
+<script>
+  function updateTime() {
+    const now = new Date()
+
+    document.getElementById("time").innerText =
+      now.toLocaleTimeString()
+
+    document.getElementById("fullDate").innerText =
+      now.toLocaleDateString(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+
+    document.getElementById("todayDate").innerText =
+      now.toLocaleDateString()
+  }
+
+  function clockIn() {
+    document.getElementById("statusText").innerText = "Clocked In"
+    document.getElementById("statusText").className =
+      "badge bg-success status-badge"
+  }
+
+  function clockOut() {
+    document.getElementById("statusText").innerText = "Clocked Out"
+    document.getElementById("statusText").className =
+      "badge bg-danger status-badge"
+  }
+
+  setInterval(updateTime, 1000)
+  updateTime()
+</script>
+
+</body>
+</html>

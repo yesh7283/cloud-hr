@@ -1,0 +1,83 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Leave Approval | Cloud HR & Payout"
+const path = "../../../dist"
+
+const mainPage = "leave"
+const page = "approval"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Leave Approval</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Pending Leave Requests</h3>
+          </div>
+
+          <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Leave Type</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Days</th>
+                  <th>Reason</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td>Alexander Pierce</td>
+                  <td>Casual Leave</td>
+                  <td>2025-01-10</td>
+                  <td>2025-01-11</td>
+                  <td>2</td>
+                  <td>Personal work</td>
+                  <td>
+                    <button class="btn btn-success btn-sm">
+                      <i class="bi bi-check-circle"></i> Approve
+                    </button>
+                    <button class="btn btn-danger btn-sm">
+                      <i class="bi bi-x-circle"></i> Reject
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

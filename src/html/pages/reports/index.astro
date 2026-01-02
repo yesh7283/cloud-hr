@@ -1,0 +1,79 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Reports | Cloud HR & Payout"
+const path = "../../dist"
+
+const mainPage = "reports"
+const page = "index"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- CONTENT -->
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Reports</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- REPORT CARDS -->
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <i class="bi bi-clock-history fs-1 text-primary"></i>
+                <h5 class="mt-2">Attendance Report</h5>
+                <p>Attendance charts and summaries.</p>
+                <button class="btn btn-outline-primary btn-sm">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <i class="bi bi-calendar-check fs-1 text-success"></i>
+                <h5 class="mt-2">Leave Report</h5>
+                <p>Leave statistics and trends.</p>
+                <button class="btn btn-outline-success btn-sm">View</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <i class="bi bi-cash-stack fs-1 text-warning"></i>
+                <h5 class="mt-2">Payroll Report</h5>
+                <p>Payroll financial data.</p>
+                <button class="btn btn-outline-warning btn-sm">View</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

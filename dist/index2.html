@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cloud HR &amp; Payout Management System | Dashboard</title>
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="Cloud HR &#38; Payout Management System | Dashboard" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="Cloud HR & Payout Management System is an HR & Payroll dashboard UI for attendance, leave, compliance and payouts."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="./css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="./css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.css" />
+  </head>
+
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="/index2.html" class="nav-link">Home</a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+
+          <!--begin::End Navbar Links-->
+          <ul class="navbar-nav ms-auto">
+            <!--begin::Navbar Search-->
+            <li class="nav-item">
+              <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+            <!--end::Navbar Search-->
+
+            <!--begin::Messages Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-chat-text"></i>
+                <span class="navbar-badge badge text-bg-danger">3</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="./assets/img/user1-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Brad Diesel
+                        <span class="float-end fs-7 text-danger"
+                          ><i class="bi bi-star-fill"></i
+                        ></span>
+                      </h3>
+                      <p class="fs-7">Call me whenever you can...</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="./assets/img/user8-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        John Pierce
+                        <span class="float-end fs-7 text-secondary">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">I got your message bro</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <!--begin::Message-->
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img
+                        src="./assets/img/user3-128x128.jpg"
+                        alt="User Avatar"
+                        class="img-size-50 rounded-circle me-3"
+                      />
+                    </div>
+                    <div class="flex-grow-1">
+                      <h3 class="dropdown-item-title">
+                        Nora Silvester
+                        <span class="float-end fs-7 text-warning">
+                          <i class="bi bi-star-fill"></i>
+                        </span>
+                      </h3>
+                      <p class="fs-7">The subject goes here</p>
+                      <p class="fs-7 text-secondary">
+                        <i class="bi bi-clock-fill me-1"></i> 4 Hours Ago
+                      </p>
+                    </div>
+                  </div>
+                  <!--end::Message-->
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+              </div>
+            </li>
+            <!--end::Messages Dropdown Menu-->
+
+            <!--begin::Notifications Dropdown Menu-->
+            <li class="nav-item dropdown">
+              <a class="nav-link" data-bs-toggle="dropdown" href="#">
+                <i class="bi bi-bell-fill"></i>
+                <span class="navbar-badge badge text-bg-warning">15</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <span class="dropdown-item dropdown-header">15 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-envelope me-2"></i> 4 new messages
+                  <span class="float-end text-secondary fs-7">3 mins</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-people-fill me-2"></i> 8 friend requests
+                  <span class="float-end text-secondary fs-7">12 hours</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                  <i class="bi bi-file-earmark-fill me-2"></i> 3 new reports
+                  <span class="float-end text-secondary fs-7">2 days</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer"> See All Notifications </a>
+              </div>
+            </li>
+            <!--end::Notifications Dropdown Menu-->
+
+            <!--begin::Fullscreen Toggle-->
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+              </a>
+            </li>
+            <!--end::Fullscreen Toggle-->
+
+            <!--begin::User Menu Dropdown-->
+            <li class="nav-item dropdown user-menu">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img
+                  src="./assets/img/user2-160x160.jpg"
+                  class="user-image rounded-circle shadow"
+                  alt="User Image"
+                />
+                <span class="d-none d-md-inline">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <!--begin::User Image-->
+                <li class="user-header text-bg-primary">
+                  <img
+                    src="./assets/img/user2-160x160.jpg"
+                    class="rounded-circle shadow"
+                    alt="User Image"
+                  />
+                  <p>
+                    Alexander Pierce - Web Developer
+                    <small>Member since Nov. 2023</small>
+                  </p>
+                </li>
+                <!--end::User Image-->
+                <!--begin::Menu Body-->
+                <li class="user-body">
+                  <!--begin::Row-->
+                  <div class="row">
+                    <div class="col-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </div>
+                  <!--end::Row-->
+                </li>
+                <!--end::Menu Body-->
+                <!--begin::Menu Footer-->
+                <li class="user-footer">
+                  <a href="#" class="btn btn-outline-secondary">Profile</a>
+                  <a href="/examples/login" class="btn btn-outline-danger float-end">Sign out</a>
+                </li>
+                <!--end::Menu Footer-->
+              </ul>
+            </li>
+            <!--end::User Menu Dropdown-->
+          </ul>
+          <!--end::End Navbar Links-->
+        </div>
+        <!--end::Container-->
+      </nav>
+      <!--end::Header-->
+      <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+        <!-- BRAND -->
+        <div class="sidebar-brand">
+          <a href="/index2" class="brand-link">
+            <img
+              src="/assets/img/AdminLTELogo.png"
+              alt="Cloud HR & Payout Logo"
+              class="brand-image opacity-75 shadow"
+            />
+            <span class="brand-text fw-light">Cloud HR & Payout</span>
+          </a>
+        </div>
+
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul
+              class="nav sidebar-menu flex-column"
+              data-lte-toggle="treeview"
+              data-accordion="false"
+            >
+              <!-- EMPLOYEES -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-people-fill"></i>
+                  <p>Employees <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/employees" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Employee List</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/employees/add" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Add Employee</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- ATTENDANCE -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-clock"></i>
+                  <p>Attendance <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/attendance/clockin" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Clock In / Out</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/attendance/history" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Attendance History</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- LEAVE -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-calendar-check"></i>
+                  <p>Leave <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/leave/request" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Request Leave</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/leave/approval" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Approval Leave</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- PAYROLL -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-cash-stack"></i>
+                  <p>Payroll <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/payroll/run" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Run Payroll</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/payroll/payslips" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Payslips</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- DOCUMENTS -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-folder2-open"></i>
+                  <p>Documents <i class="right bi bi-chevron-down"></i></p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/documents/payslips" class="nav-link">
+                      <i class="nav-icon bi bi-file-earmark-pdf"></i>
+                      <p>Payslips</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/documents/personal" class="nav-link">
+                      <i class="nav-icon bi bi-person-vcard"></i>
+                      <p>Personal Documents</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- REPORTS -->
+              <li class="nav-item">
+                <a href="/reports" class="nav-link">
+                  <i class="nav-icon bi bi-bar-chart-line"></i>
+                  <p>Reports</p>
+                </a>
+              </li>
+
+              <!-- SETTINGS -->
+              <li class="nav-item">
+                <a href="/settings" class="nav-link">
+                  <i class="nav-icon bi bi-gear"></i>
+                  <p>Settings</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="app-main">
+        <!-- HEADER -->
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3 class="mb-0">HR Dashboard</h3>
+              </div>
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-end">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="app-content">
+          <div class="container-fluid">
+            <!-- KPI CARDS -->
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                  <span class="info-box-icon text-bg-primary">
+                    <i class="bi bi-people-fill"></i>
+                  </span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">Total Employees</span>
+                    <span class="info-box-number">126</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                  <span class="info-box-icon text-bg-success">
+                    <i class="bi bi-calendar-check"></i>
+                  </span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">Present Today</span>
+                    <span class="info-box-number">98 / 126</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                  <span class="info-box-icon text-bg-danger">
+                    <i class="bi bi-exclamation-triangle"></i>
+                  </span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">Visa Expiring (30 Days)</span>
+                    <span class="info-box-number">7</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                <div class="info-box">
+                  <span class="info-box-icon text-bg-warning">
+                    <i class="bi bi-currency-pound"></i>
+                  </span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">Payroll Due</span>
+                    <span class="info-box-number">£24,813</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHART + COMPLIANCE -->
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Attendance Trend (Last 7 Days)</h5>
+                  </div>
+                  <div class="card-body">
+                    <div id="attendanceChart" style="min-height: 260px"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Compliance Status</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="progress-group">
+                      Visa Valid
+                      <span class="float-end"><b>112</b>/126</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-success" style="width: 88%"></div>
+                      </div>
+                    </div>
+
+                    <div class="progress-group">
+                      Visa Expiring
+                      <span class="float-end"><b>7</b></span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-warning" style="width: 6%"></div>
+                      </div>
+                    </div>
+
+                    <div class="progress-group">
+                      Visa Expired
+                      <span class="float-end"><b>2</b></span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" style="width: 2%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ALERTS + RECENT -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">HR Alerts</h5>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group">
+                      <li class="list-group-item text-danger">
+                        ⚠️
+                        <a
+                          href="javascript:void(0)"
+                          data-bs-toggle="modal"
+                          data-bs-target="#employeeQuickViewModal"
+                          class="fw-semibold text-danger"
+                        >
+                          John
+                        </a>
+                        – Visa expires in 14 days
+                      </li>
+                      <li class="list-group-item text-warning">⚠️ 3 employees missing documents</li>
+                      <li class="list-group-item text-success">✔ Payroll approved</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Recently Joined</h5>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <a
+                          href="javascript:void(0)"
+                          data-bs-toggle="modal"
+                          data-bs-target="#employeeQuickViewModal"
+                        >
+                          Alexander – Software Engineer
+                        </a>
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="javascript:void(0)"
+                          data-bs-toggle="modal"
+                          data-bs-target="#employeeQuickViewModal"
+                        >
+                          Jane – Care Assistant
+                        </a>
+                      </li>
+                      <li class="list-group-item">
+                        <a
+                          href="javascript:void(0)"
+                          data-bs-toggle="modal"
+                          data-bs-target="#employeeQuickViewModal"
+                        >
+                          Nora – HR Executive
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">Cloud HR &amp; Payout Management System</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright &copy; 2025
+          <a href="#" class="text-decoration-none">Cloud HR &amp; Payout Management System</a>.
+        </strong>
+        All rights reserved.
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+    </div>
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="./js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+
+    <!-- ApexCharts -->
+    <script
+      type="module"
+      src="/_astro/index2.astro_astro_type_script_index_0_lang.CS-ktMHj.js"
+    ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+          chart: { type: 'area', height: 260, toolbar: { show: false } },
+          series: [
+            { name: 'Present', data: [92, 95, 90, 98, 96, 94, 98] },
+            { name: 'Absent', data: [34, 31, 36, 28, 30, 32, 28] },
+          ],
+          colors: ['#198754', '#dc3545'],
+          stroke: { curve: 'smooth' },
+          dataLabels: { enabled: false },
+          xaxis: { categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] },
+        };
+        new ApexCharts(document.querySelector('#attendanceChart'), options).render();
+      });
+    </script>
+
+    <!-- EMPLOYEE QUICK VIEW MODAL -->
+    <div class="modal fade" id="employeeQuickViewModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">Employee quick view</h5>
+            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4 text-center border-end">
+                <img
+                  src="./assets/img/user1-128x128.jpg"
+                  class="rounded-circle mb-3"
+                  width="110"
+                  height="110"
+                />
+                <h5 class="mb-0">Ashish Jaiswal</h5>
+                <small class="text-muted">Office Manager</small>
+
+                <div class="alert alert-info mt-3 py-2">
+                  <i class="bi bi-geo-alt"></i> Working from usual location
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <h6 class="fw-bold">Teams</h6>
+                <p class="text-muted">No team assigned</p>
+
+                <h6 class="fw-bold">Contact</h6>
+                <p><i class="bi bi-envelope"></i> ashish.jaiswal@company.com</p>
+                <p><i class="bi bi-telephone"></i> +44 7700 900123</p>
+
+                <h6 class="fw-bold">Reports to</h6>
+                <div class="d-flex align-items-center gap-2">
+                  <div
+                    class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                    style="width: 40px; height: 40px"
+                  >
+                    NJP
+                  </div>
+                  <span>Nisha Jyothi Prasad</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary">View Full Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

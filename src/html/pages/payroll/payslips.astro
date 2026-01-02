@@ -1,0 +1,93 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Payslips | Cloud HR & Payout"
+const path = "../../../dist"
+
+const mainPage = "payroll"
+const page = "payslips"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Payslips</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- FILTER -->
+        <div class="card">
+          <div class="card-body row">
+            <div class="col-md-4">
+              <label>Select Month</label>
+              <input type="month" class="form-control" />
+            </div>
+
+            <div class="col-md-4 align-self-end">
+              <button class="btn btn-primary">
+                <i class="bi bi-search"></i> View Payslips
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAYSLIPS TABLE -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Payslip Records</h3>
+          </div>
+
+          <div class="card-body table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Month</th>
+                  <th>Gross Pay</th>
+                  <th>Deductions</th>
+                  <th>Net Pay</th>
+                  <th>Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alexander Pierce</td>
+                  <td>Jan 2025</td>
+                  <td>£3,500</td>
+                  <td>£750</td>
+                  <td>£2,750</td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary">
+                      <i class="bi bi-file-earmark-pdf"></i> PDF
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>

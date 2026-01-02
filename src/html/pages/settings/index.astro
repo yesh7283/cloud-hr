@@ -1,0 +1,184 @@
+---
+import Head from "@components/_head.astro"
+import Scripts from "@components/_scripts.astro"
+
+const title = "Settings | Cloud HR & Payout"
+const path = "../../dist"
+
+const mainPage = "settings"
+const page = "index"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} path={path} />
+</head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <div class="content-wrapper">
+
+    <!-- PAGE HEADER -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <h1>Settings</h1>
+      </div>
+    </section>
+
+    <!-- PAGE CONTENT -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- SETTINGS TABS -->
+        <ul class="nav nav-tabs mb-3">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#general">
+              General
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#profile">
+              Profile
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#security">
+              Security
+            </a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- GENERAL SETTINGS -->
+          <div class="tab-pane fade show active" id="general">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Company Name</label>
+                    <input type="text" class="form-control" value="Cloud HR & Payout" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label>Time Zone</label>
+                    <select class="form-control">
+                      <option>UTC</option>
+                      <option>Asia/Kolkata</option>
+                      <option>Europe/London</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <label>Currency</label>
+                    <select class="form-control">
+                      <option>GBP (£)</option>
+                      <option>INR (₹)</option>
+                      <option>USD ($)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label>Date Format</label>
+                    <select class="form-control">
+                      <option>DD-MM-YYYY</option>
+                      <option>MM-DD-YYYY</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="text-right mt-4">
+                  <button class="btn btn-primary">
+                    <i class="bi bi-save"></i> Save General Settings
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- PROFILE SETTINGS -->
+          <div class="tab-pane fade" id="profile">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" value="Alexander Pierce" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control" value="alexander@example.com" />
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label>Role</label>
+                    <input type="text" class="form-control" value="Admin" disabled />
+                  </div>
+                </div>
+
+                <div class="text-right mt-4">
+                  <button class="btn btn-success">
+                    <i class="bi bi-save"></i> Update Profile
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- SECURITY SETTINGS -->
+          <div class="tab-pane fade" id="security">
+            <div class="card">
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>New Password</label>
+                    <input type="password" class="form-control" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" />
+                  </div>
+                </div>
+
+                <div class="text-right mt-4">
+                  <button class="btn btn-danger">
+                    <i class="bi bi-shield-lock"></i> Update Password
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<Scripts path={path} />
+</body>
+</html>
